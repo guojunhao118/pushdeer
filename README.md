@@ -28,3 +28,14 @@
 - 在 issus 留言
 ### 已知问题
 1. bilibili cookie 必须用 js的 decodeURIComponent解码一下才行
+
+
+## 使用教程
+
+### macos
+
+1. 安装 python3 
+
+```shell
+brew install python3
+```
