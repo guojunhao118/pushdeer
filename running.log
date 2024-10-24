@@ -1,0 +1,340 @@
+
+2024-10-24 14:40:49,811 - INFO - ------ 开始监控 ------
+
+2024-10-24 14:40:49,812 - INFO - 读取配置文件
+
+2024-10-24 14:40:49,812 - INFO - 当前轮次: 1
+
+2024-10-24 14:40:49,977 - ERROR - 
+Traceback (most recent call last):
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 61, in <module>
+    main()
+    ~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 52, in main
+    bili_main()
+    ~~~~~~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 379, in bili_main
+    monitor_bili_moda_dynamic(UP)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 77, in monitor_bili_moda_dynamic
+    first_item = items[0]
+                 ~~~~~^^^
+KeyError: 0
+
+2024-10-24 14:41:03,311 - INFO - ------ 开始监控 ------
+
+2024-10-24 14:41:03,311 - INFO - 读取配置文件
+
+2024-10-24 14:41:03,311 - INFO - 当前轮次: 1
+
+2024-10-24 14:41:03,495 - ERROR - 
+Traceback (most recent call last):
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 61, in <module>
+    main()
+    ~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 52, in main
+    bili_main()
+    ~~~~~~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 379, in bili_main
+    monitor_bili_moda_dynamic(UP)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 77, in monitor_bili_moda_dynamic
+    first_item = items[0]
+                 ~~~~~^^^
+KeyError: 0
+
+2024-10-24 14:42:24,001 - INFO - ------ 开始监控 ------
+
+2024-10-24 14:42:24,001 - INFO - 读取配置文件
+
+2024-10-24 14:42:24,001 - INFO - 当前轮次: 1
+
+2024-10-24 14:42:24,632 - INFO - bili cookie失效,请重新登录
+
+2024-10-24 14:50:19,177 - INFO - ------ 开始监控 ------
+
+2024-10-24 14:50:19,177 - INFO - 读取配置文件
+
+2024-10-24 14:50:19,177 - INFO - 当前轮次: 1
+
+2024-10-24 14:50:21,006 - ERROR - 
+Traceback (most recent call last):
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 61, in <module>
+    main()
+    ~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 52, in main
+    bili_main()
+    ~~~~~~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 380, in bili_main
+    monitor_bili_moda_top(UP)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 148, in monitor_bili_moda_top
+    fetch_top_reply(jump_id, link, UP)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 167, in fetch_top_reply
+    process_reply(reply, link, UP, jump_id)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 187, in process_reply
+    monitor_bili_moda_reply(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<5 lines>...
+        UP,
+        ^^^
+    )
+    ^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 279, in monitor_bili_moda_reply
+    if rpid_int <= end_reply_rpid:
+       ^^^^^^^^
+UnboundLocalError: cannot access local variable 'rpid_int' where it is not associated with a value
+
+2024-10-24 14:53:12,437 - INFO - ------ 开始监控 ------
+
+2024-10-24 14:53:12,437 - INFO - 读取配置文件
+
+2024-10-24 14:53:12,437 - INFO - 当前轮次: 1
+
+2024-10-24 14:53:14,210 - ERROR - 
+Traceback (most recent call last):
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 61, in <module>
+    main()
+    ~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 52, in main
+    bili_main()
+    ~~~~~~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 380, in bili_main
+    monitor_bili_moda_top(UP)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 148, in monitor_bili_moda_top
+    fetch_top_reply(jump_id, link, UP)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 167, in fetch_top_reply
+    process_reply(reply, link, UP, jump_id)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 187, in process_reply
+    monitor_bili_moda_reply(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<5 lines>...
+        UP,
+        ^^^
+    )
+    ^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 274, in monitor_bili_moda_reply
+    rpid_int = int(rpid)
+                   ^^^^
+UnboundLocalError: cannot access local variable 'rpid' where it is not associated with a value
+
+2024-10-24 14:54:58,400 - INFO - ------ 开始监控 ------
+
+2024-10-24 14:54:58,401 - INFO - 读取配置文件
+
+2024-10-24 14:54:58,401 - INFO - 当前轮次: 1
+
+2024-10-24 14:55:00,284 - ERROR - 
+Traceback (most recent call last):
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 61, in <module>
+    main()
+    ~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 52, in main
+    bili_main()
+    ~~~~~~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 368, in bili_main
+    monitor_bili_moda_top(UP)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 148, in monitor_bili_moda_top
+    fetch_top_reply(jump_id, link, UP)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 167, in fetch_top_reply
+    process_reply(reply, link, UP, jump_id)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 187, in process_reply
+    monitor_bili_moda_reply(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        {
+        ^
+    ...<5 lines>...
+        UP,
+        ^^^
+    )
+    ^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 280, in monitor_bili_moda_reply
+    mid_reply = reply["min"]
+                ~~~~~^^^^^^^
+KeyError: 'min'
+
+2024-10-24 14:55:28,915 - INFO - ------ 开始监控 ------
+
+2024-10-24 14:55:28,916 - INFO - 读取配置文件
+
+2024-10-24 14:55:28,916 - INFO - 当前轮次: 1
+
+2024-10-24 14:57:21,917 - INFO - 当前轮次: 2
+
+2024-10-24 14:57:22,147 - INFO - 测试...,test...
+
+2024-10-24 14:59:51,611 - INFO - 当前轮次: 3
+
+2024-10-24 15:02:49,191 - INFO - 当前轮次: 4
+
+2024-10-24 15:05:22,519 - INFO - 当前轮次: 5
+
+2024-10-24 15:07:06,341 - INFO - 当前轮次: 6
+
+2024-10-24 15:09:46,081 - INFO - 当前轮次: 7
+
+2024-10-24 15:11:03,276 - INFO - ------ 开始监控 ------
+
+2024-10-24 15:11:03,277 - INFO - 读取配置文件
+
+2024-10-24 15:11:03,277 - INFO - 当前轮次: 1
+
+2024-10-24 15:13:40,560 - INFO - 当前轮次: 2
+
+2024-10-24 15:13:40,786 - INFO - 测试...,test...
+
+2024-10-24 15:13:42,588 - INFO - ------ 开始监控 ------
+
+2024-10-24 15:13:42,588 - INFO - 读取配置文件
+
+2024-10-24 15:13:42,588 - INFO - 当前轮次: 1
+
+2024-10-24 15:13:42,588 - INFO - up 列表====={up_list}
+
+2024-10-24 15:14:38,191 - INFO - ------ 开始监控 ------
+
+2024-10-24 15:14:38,192 - INFO - 读取配置文件
+
+2024-10-24 15:14:38,192 - INFO - 当前轮次: 1
+
+2024-10-24 15:14:38,192 - INFO - up 列表=====[{'name': '莫大', 'mid': '525121722', 'roomId': '23229268'}, {'name': '笨笨', 'mid': '11473291', 'roomId': '27805029'}]
+
+2024-10-24 15:17:43,589 - INFO - 当前轮次: 2
+
+2024-10-24 15:17:43,822 - INFO - 测试...,test...
+
+2024-10-24 15:17:43,823 - INFO - up 列表=====[{'name': '莫大', 'mid': '525121722', 'roomId': '23229268'}, {'name': '笨笨', 'mid': '11473291', 'roomId': '27805029'}]
+
+2024-10-24 15:20:51,553 - INFO - 当前轮次: 3
+
+2024-10-24 15:20:51,556 - INFO - up 列表=====[{'name': '莫大', 'mid': '525121722', 'roomId': '23229268'}, {'name': '笨笨', 'mid': '11473291', 'roomId': '27805029'}]
+
+2024-10-24 15:23:59,296 - INFO - 当前轮次: 4
+
+2024-10-24 15:23:59,299 - INFO - up 列表=====[{'name': '莫大', 'mid': '525121722', 'roomId': '23229268'}, {'name': '笨笨', 'mid': '11473291', 'roomId': '27805029'}]
+
+2024-10-24 15:25:51,755 - INFO - 当前轮次: 5
+
+2024-10-24 15:25:51,758 - INFO - up 列表=====[{'name': '莫大', 'mid': '525121722', 'roomId': '23229268'}, {'name': '笨笨', 'mid': '11473291', 'roomId': '27805029'}]
+
+2024-10-24 15:26:10,352 - ERROR - 
+Traceback (most recent call last):
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/urllib3/connection.py", line 199, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 495, in _make_request
+    conn.request(
+    ~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<6 lines>...
+        enforce_content_length=enforce_content_length,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/urllib3/connection.py", line 441, in request
+    self.endheaders()
+    ~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.0_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.0_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1091, in _send_output
+    self.send(msg)
+    ~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.0_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1035, in send
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/urllib3/connection.py", line 279, in connect
+    self.sock = self._new_conn()
+                ~~~~~~~~~~~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/urllib3/connection.py", line 214, in _new_conn
+    raise NewConnectionError(
+        self, f"Failed to establish a new connection: {e}"
+    ) from e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x103f13620>: Failed to establish a new connection: [Errno 61] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=80): Max retries exceeded with url: /moda/dynamic/add (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x103f13620>: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 61, in <module>
+    main()
+    ~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/main.py", line 52, in main
+    bili_main()
+    ~~~~~~~~~^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 369, in bili_main
+    monitor_bili_moda_top(UP)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 148, in monitor_bili_moda_top
+    fetch_top_reply(jump_id, link, UP)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 167, in fetch_top_reply
+    process_reply(reply, link, UP, jump_id)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/bili/index.py", line 184, in process_reply
+    push_dynamic(UP["name"], 2, msg, link, ctime)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/script/push.py", line 35, in push_dynamic
+    requests.post(url, data)
+    ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/junhaoguo/Documents/github/pushdeer/venv/lib/python3.13/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=80): Max retries exceeded with url: /moda/dynamic/add (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x103f13620>: Failed to establish a new connection: [Errno 61] Connection refused'))
