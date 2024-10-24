@@ -48,9 +48,10 @@ def extract_text_from_dynamic(dynamic):
         or dynamic.get("opus", {}).get("summary", {}).get("text", "")
     )
 
+
 # 发送请求并处理错误
 def fetch_dynamic_data(mid):
-    url = f'https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/space?host_mid={mid}'
+    url = f"https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/space?host_mid={mid}"
     try:
         res = requests.get(url, headers=headers_bili)
         res.raise_for_status()
@@ -59,9 +60,10 @@ def fetch_dynamic_data(mid):
         logging.error(f"请求错误: {e}")
         return {}
 
+
 # UP动态（除置顶）
 def monitor_bili_up_dynamic(UP):
-    global m_tg, noLogin
+    global m_tg, noLogin, m_tg_top
 
     # 初始化用户状态
     m_tg.setdefault(UP["mid"], "")
@@ -86,6 +88,14 @@ def monitor_bili_up_dynamic(UP):
     dynamic_id = first_item["id_str"]
     jump_url = bili_moda_opus_link + dynamic_id
     text = extract_text_from_dynamic(first_item["modules"]["module_dynamic"])
+
+    # 获取这条动态下面的评论
+    # 置顶动态
+    jump_id = first_item["id_str"]
+    link = bili_moda_opus_link + jump_id
+    fetch_top_reply(jump_id, link, UP)
+
+    # 非置顶动态，遍历查询
 
     if text:
         text = text.replace("\n", " ")[:push_text_len]
@@ -144,6 +154,7 @@ def monitor_bili_up_top(UP):
         logging.info("bili cookie失效,请重新登录")
         noLogin = True
 
+
 # 获取置顶动态回复
 def fetch_top_reply(jump_id, link, UP):
     url = f"https://api.bilibili.com/x/v2/reply/main?csrf=fcce6f152bd72daf7b7ca4e9db826f77&mode=3&oid={jump_id}&pagination_str=%7B%22offset%22:%22%22%7D&plat=1&seek_rpid=0&type=17"
@@ -170,9 +181,15 @@ def process_reply(reply, link, UP, jump_id):
     else:
         return
 
-    if m_tg_top[UP["mid"]] == "":
+    logging.info(f"m_tg_top====={UP["mid"]}")
+    # 使用 get 方法避免 KeyError
+
+
+    current_top_id = m_tg_top.get(UP["mid"], "")
+
+    if current_top_id == "":
         m_tg_top[UP["mid"]] = top_id
-    elif top_id != m_tg_top[UP["mid"]]:
+    elif top_id != current_top_id:
         push(UP["name"] + "置顶", msg, link)
         # push_dynamic(UP["name"], 2, msg, link, ctime)
         m_tg_top[UP["mid"]] = top_id
