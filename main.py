@@ -1,24 +1,10 @@
 import sys
 import time
 import random
-import configparser
 import logging
-from script.push import send_key, push, push_dynamic
-from bili.index import headers_bili, bili_main
-
-
-# 读取配置文件
-def readConfig():
-    config = configparser.ConfigParser()
-    config.read("./config.ini")
-    logging.info("读取配置文件", config)
-    if "data" in config:
-        send_key["token"] = config["data"]["send_key"]
-        headers_bili["Cookie"] = config["data"]["cookie_bili"]
-    else:
-        logging.error("配置文件未找到或格式错误")
-        sys.exit(0)
-
+from script.push import push, push_dynamic
+from bili.index import bili_main
+from config import send_key, headers_bili, up_list
 
 # 写入日志
 logging.basicConfig(
@@ -26,7 +12,6 @@ logging.basicConfig(
     format="\n%(asctime)s - %(levelname)s - %(message)s",
     level=logging.INFO,
 )
-
 
 def Wlog(text):
     logging.error(text, exc_info=True)
@@ -44,20 +29,25 @@ ii = 0
 
 
 def main():
-    global ii
-    while True:
-        ii = ii + 1
-        logging.info("当前轮次: " + str(ii))
-        test()
-        bili_main()
-        s = random.randint(30, 80)
-        time.sleep(s * 2)
+    # 在这里使用 send_key、headers_bili 和 up_list
+    logging.info(f"Send Key: {send_key}")
+    logging.info(f"Headers: {headers_bili}")
+    logging.info(f"UP List: {up_list}")
+    bili_main()
+    # global ii
+    # while True:
+    #     ii = ii + 1
+    #     logging.info("当前轮次: " + str(ii))
+    #     # test()
+    #     bili_main()
+    #     s = random.randint(30, 80)
+    #     time.sleep(s * 2)
 
 
 if __name__ == "__main__":
     logging.info("------ 开始监控 ------")
     try:
-        readConfig()
+        # readConfig()
         main()
     except Exception as e:
         Wlog("")

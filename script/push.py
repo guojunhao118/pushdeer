@@ -1,7 +1,6 @@
 # 通知
 import requests
-
-send_key = {}
+from config import send_key
 
 
 def push(type, text, link=None, desc=None):

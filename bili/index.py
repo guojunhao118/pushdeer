@@ -1,3 +1,4 @@
+import json
 import math
 import requests
 import time
@@ -5,13 +6,9 @@ from datetime import datetime
 import copy
 import logging
 from script.push import push, push_dynamic
+from config import up_list, headers_bili
 
-push_text_len = 50
-
-up_list = [
-    {"name": "莫大", "mid": "525121722", "roomId": "23229268"},
-    {"name": "笨笨", "mid": "11473291", "roomId": "27805029"},
-]
+push_text_len = 200
 
 bili_moda_opus_link = "https://www.bilibili.com/opus/"
 m_tg = {}
@@ -19,22 +16,6 @@ m_tg_top = {}
 m_tg_test = ""
 live_start_time = None
 noLogin = False
-
-headers_bili = {
-    "Accept": "application/json, text/plain, */*",
-    "Connection": "keep-alive",
-    "Cookie": "",
-    "Host": "api.bilibili.com",
-    "Origin": "https://space.bilibili.com",
-    "Referer": "https://space.bilibili.com/525121722/dynamic",
-    "sec-ch-ua": '"Microsoft Edge";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": '"Windows"',
-    "Sec-Fetch-Dest": "empty",
-    "Sec-Fetch-Mode": "cors",
-    "Sec-Fetch-Site": "same-site",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.57",
-}
 
 
 # 提取文字
@@ -184,7 +165,6 @@ def process_reply(reply, link, UP, jump_id):
     logging.info(f"m_tg_top====={UP["mid"]}")
     # 使用 get 方法避免 KeyError
 
-
     current_top_id = m_tg_top.get(UP["mid"], "")
 
     if current_top_id == "":
@@ -269,13 +249,16 @@ def monitor_bili_up_reply(options, UP):
     # 计算总页数，向上取整
     page_total = math.ceil(options["rcount"] / page_size)
 
+    # 建立 rpid 到回复的全局映射
+    reply_map = {}
+
     for page_index in range(page_total, 0, -1):
         time.sleep(1)
         url = f'https://api.bilibili.com/x/v2/reply/reply?oid={options["oid"]}&type=17&root={options["root"]}&ps={page_size}&pn={page_index}&web_location=444.42'
         res = requests.get(url, headers=headers_bili).json()
 
         if "data" not in res:
-            logging.info(UP["name"] + "回复：返回json没包含data字段 ---230行")
+            logging.info(UP["name"] + "回复：返回json没包含data字段")
             return
 
         data = res["data"]
@@ -285,10 +268,15 @@ def monitor_bili_up_reply(options, UP):
         if root_msg and isinstance(root_msg, str):
             root_msg = root_msg.replace("\n", " ")[0:push_text_len]
 
+        # 更新 reply_map，保留所有页的回复映射
+        for reply in replies:
+            reply_map[reply["rpid_str"]] = reply
+
         for reply in reversed(replies):
             rpid = reply["rpid_str"]
             mid_reply = reply["mid"]
             msg = reply["content"]["message"]
+            parent_str = reply["parent_str"]
             rpid_int = int(rpid)
 
             if page_index == page_total and reply == replies[-1]:
@@ -311,6 +299,16 @@ def monitor_bili_up_reply(options, UP):
                 text = msg if isinstance(msg, str) else ""
                 if text:
                     text = text.replace("\n", " ")[:push_text_len]
+
+                # 查找并输出所有回复该评论的内容
+                for child_reply in reply_map.values():
+                    if child_reply.get("rpid_str") == parent_str:
+                        # 过滤 member["mid"] 等于 UP["mid"] 的回复
+                        child_msg = child_reply["content"]["message"]
+                        child_member = child_reply["member"]["uname"]
+                        child_text = child_msg.replace("\n", " ")[:push_text_len] if isinstance(child_msg, str) else ""
+                        text += f"\n\\/{child_member}: {child_text}"
+
                 push(
                     UP["name"] + "回复",
                     text,
@@ -384,11 +382,15 @@ def monitor_bili_up_live_roomId(UP):
         push_dynamic(UP["name"], 3, text, live_url)
 
 
+
+# 主函数
 def bili_main():
-    global up_list
+    # global up_list
     # 遍历 up 主列表，监听
+    logging.info(f"=========={up_list}")
     for UP in up_list:
-        # 动态监听
+        logging.info(f"监听 UP 动态{UP}")
+        # 最新动态监听
         monitor_bili_up_dynamic(UP)
         # 置顶动态监听
         monitor_bili_up_top(UP)
